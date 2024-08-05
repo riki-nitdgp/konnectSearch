@@ -1,0 +1,5 @@
+fastapi==0.111.0
+uvicorn==0.29.0
+aiokafka[snappy]==0.11.0
+opensearch-py==2.6.0
+pydantic==2.8.2

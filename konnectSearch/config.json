@@ -1,0 +1,16 @@
+{
+  "SERVICE_NAME": "KonnectSearch",
+  "PORT": 8002,
+  "DEBUG": true,
+  "API_PREFIX": "/konnect-search",
+  "KAFKA": {
+    "BOOTSTRAP_SERVER": "kafka:29092",
+    "GROUP_ID": "konnect-search-001",
+    "TOPICS": {"CDC_EVENT":  "cdc-events"}
+  },
+  "OPEN_SEARCH": {
+    "HOST": "opensearch-node",
+    "PORT":  9200,
+    "INDEXES": {"ENTITIES":  "entities"}
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "mappings": {
+    "properties": {
+      "type": {"type": "keyword"},
+      "id": {"type": "keyword"},
+      "host": {"type": "text"},
+      "name": {"type": "text"},
+      "path": {"type": "keyword"},
+      "port": {"type": "integer"},
+      "tags": {"type": "keyword"},
+      "enabled": {"type": "boolean"},
+      "retries": {"type": "integer"},
+      "protocol": {"type": "keyword"},
+      "created_at": {"type": "date"},
+      "updated_at": {"type": "date"},
+      "read_timeout": {"type": "integer"},
+      "write_timeout": {"type": "integer"},
+      "connect_timeout": {"type": "integer"},
+      "methods": {"type": "keyword"},
+      "paths": {"type": "keyword"},
+      "hosts": {"type": "keyword"},
+      "service_id": {"type": "keyword"},
+      "version": {"type": "keyword"},
+      "hostname": {"type": "keyword"},
+      "last_ping": {"type": "date"},
+      "config_hash": {"type": "keyword"},
+      "process_conf": {
+        "type": "object",
+        "properties": {
+          "plugins": {"type": "keyword"},
+          "lmdb_map_size": {"type": "keyword"},
+          "router_flavor": {"type": "keyword"},
+          "cluster_max_payload": {"type": "integer"}
+        }
+      },
+      "connection_state": {
+        "type": "object",
+        "properties": {
+          "is_connected": {"type": "boolean"}
+        }
+      },
+      "data_plane_cert_id": {"type": "keyword"},
+      "labels": {
+        "type": "object",
+        "properties": {
+          "region": {"type": "keyword"},
+          "provider": {"type": "keyword"},
+          "managed-by": {"type": "keyword"},
+          "network-id": {"type": "keyword"},
+          "dp-group-id": {"type": "keyword"}
+        }
+      }
+    }
+  }
+}

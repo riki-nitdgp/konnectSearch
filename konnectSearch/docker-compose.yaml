@@ -1,0 +1,34 @@
+version: '3.7'
+
+services:
+  konnect-search:
+    image: konnect-search/consumer
+    build: .
+    container_name: konnect-search
+    restart: always
+    command: [ "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8002", "--workers", "2" ]
+    healthcheck:
+      test: curl --fail http://localhost:8002/konnect-search/health || exit 1
+      interval: 5s
+      timeout: 7s
+      retries: 5
+      start_period: 10s
+    ports:
+      - "8002:8002"
+    networks:
+      - private-container
+    labels:
+      - autoheal=true
+
+  autoheal:
+    restart: always
+    image: willfarrell/autoheal
+    environment:
+      - AUTOHEAL_CONTAINER_LABEL=autoheal
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+
+networks:
+  private-container:
+    external: true
